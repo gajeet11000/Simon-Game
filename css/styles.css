@@ -1,0 +1,81 @@
+/*************************************TAG SELECTION********************************/
+
+body
+{
+	text-align: center;
+	font-family: 'VT323', monospace;
+	background-color: #0A1931;
+}
+
+h1
+{
+	font-size: 4rem;
+	color: #FFC947;
+}
+
+
+/*************************************Text Section********************************/
+
+#title
+{
+	margin-bottom: 3rem;
+}
+
+#control
+{
+	font-size: 3.5rem;
+	text-decoration: none;
+	color: #FFC947;
+}
+
+#control:hover
+{
+	color: red;
+}
+
+/*************************************Button Section********************************/
+
+.button
+{
+	width: 12.5rem;
+	max-width: 12.5rem;
+	height: 12.5rem;
+	max-height: 12.5rem;
+	border: 10px solid;
+	border-radius: 2rem;
+	border-color: black;
+	display: inline-block;
+	margin: 0.4rem;
+}
+
+.button:hover
+{
+	border-color: burlywood;
+}
+
+#red
+{
+	background-color: red;
+}
+
+#green
+{
+	background-color: green;
+}
+
+#yellow
+{
+	background-color: yellow;
+}
+
+#blue
+{
+	background-color: blue;
+}
+
+/*************************************JavaScript Section********************************/
+
+.game-over
+{
+	background-color: red;
+}

@@ -14,6 +14,8 @@ h1
 }
 
 
+
+
 /*************************************Text Section********************************/
 
 #title
@@ -53,6 +55,9 @@ h1
 {
 	border-color: burlywood;
 }
+*:focus {
+    outline: 0 !important;
+}
 
 #red
 {
@@ -79,4 +84,28 @@ h1
 .game-over
 {
 	background-color: red;
+}
+
+/*******************************Responsivness for Mobile View********************************/
+
+@media (max-width: 500px)
+{
+	h1
+	{
+		font-size: 5rem;
+		color: red;
+	}
+	/*.button
+	{
+		width: 12.5rem;
+		max-width: 12.5rem;
+		height: 12.5rem;
+		max-height: 12.5rem;
+		border: 10px solid;
+		border-radius: 2rem;
+		border-color: black;
+		display: inline-block;
+		margin: 0.4rem;
+		-webkit-tap-highlight-color: transparent;
+	}*/
 }

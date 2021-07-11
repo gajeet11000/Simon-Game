@@ -14,6 +14,7 @@ function controlFlow()
 {
 	if (!gameOver)
 	{
+		$("button").click(buttonClick);
 		startGame();
 	}
 	else
@@ -22,8 +23,7 @@ function controlFlow()
 	}
 }
 
-
-$("button").click(function ()
+function buttonClick()
 {
 	if (!gameOver)
 	{
@@ -38,7 +38,7 @@ $("button").click(function ()
 			gameOverEnd();
 		}
 	}
-});
+}
 
 function startGame()
 {
@@ -87,11 +87,13 @@ function playAgain()
 	sequenceNumber = 0;
 
 	generatedSequence = [];
+	$("button").on("click", buttonClick);
 	startGame();
 }
 
 function gameOverEnd()
 {
+	$("button").off("click");
 	$("#control").on("click", controlFlow);
 	gameOver = true;
 	playAudio("wrong");

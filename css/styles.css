@@ -55,7 +55,8 @@ h1
 {
 	border-color: burlywood;
 }
-*:focus {
+*:focus
+{
     outline: 0 !important;
 }
 
@@ -88,24 +89,28 @@ h1
 
 /*******************************Responsivness for Mobile View********************************/
 
-@media screen and (max-width: 500px)
+@media only screen and (max-width: 480px)
 {
-	h1
+	/*************************************Text Section********************************/
+
+	#title
 	{
-		font-size: 5rem;
-		color: red;
+		font-size: 2rem;
 	}
-	/*.button
+
+	#control
 	{
-		width: 12.5rem;
-		max-width: 12.5rem;
-		height: 12.5rem;
-		max-height: 12.5rem;
-		border: 10px solid;
-		border-radius: 2rem;
-		border-color: black;
-		display: inline-block;
-		margin: 0.4rem;
+		font-size: 2.5rem;
+	}
+
+	/*************************************Button Section********************************/
+
+	.button
+	{
+		width: 7.8125rem;
+		max-width: 7.8125rem;
+		height: 7.8125rem;
+		max-height: 7.8125rem;
 		-webkit-tap-highlight-color: transparent;
-	}*/
+	}
 }

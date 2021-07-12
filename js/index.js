@@ -1,108 +1,86 @@
 var availableButtons = ["red", "green", "yellow", "blue"];
+
 var generatedSequence = [];
-var userClickedSequence = [];
 
 var level = 1;
-var gameOver = false;
+var isGameRunning = false;
 var sequenceNumber = 0;
 
-
-
-$("#control").click(controlFlow);
-
-function controlFlow()
+$("#control").click(function ()
 {
-	if (!gameOver)
+	if (!isGameRunning)
 	{
-		$("button").click(buttonClick);
-		startGame();
+		isGameRunning = true;
+		nextLevel();
 	}
-	else
-	{
-		playAgain();
-	}
-}
+});
 
-function buttonClick()
+$("button").click(function ()
 {
-	if (!gameOver)
+	if (isGameRunning)
 	{
-		var buttonPressed = $(this).attr("id");
-		if (buttonPressed === generatedSequence[sequenceNumber])
+		var clickedButtonID = $(this).attr("id");
+
+		if (clickedButtonID === generatedSequence[sequenceNumber])
 		{
-			playAudio(buttonPressed);
-			newSequence();
+			playAudio(clickedButtonID);
+
+			sequenceNumber++;
+
+			if(sequenceNumber === generatedSequence.length)
+			{
+				sequenceNumber = 0;
+				nextLevel();
+			}
 		}
 		else
 		{
-			gameOverEnd();
+			gameOver();
 		}
 	}
-}
+});
 
-function startGame()
-{
-	$("#control").off("click");
-	levelUp();
-	animateButton();
-}
-
-function levelUp()
+function nextLevel()
 {
 	$("#control").text("Level: " + level);
 	level++;
+
+	animateButton();
 }
 
 function animateButton()
 {
-	var randomButtonId = availableButtons[getRandomNumber()];
+	var randomButtonID = availableButtons[getRandomNumber()];
 
-	randomButton = $("#"+randomButtonId);
+	//console.log(randomButtonID);
 
-	setTimeout(function ()
-	{
-		randomButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-	}, 400);
-	
+	randomButton = $("#" + randomButtonID);
 
-	generatedSequence.push(randomButtonId);
+	generatedSequence.push(randomButtonID);
+
+	randomButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 }
 
-function newSequence()
+function gameOver()
 {
-	sequenceNumber++;
-	if (sequenceNumber === generatedSequence.length)
-	{
-		sequenceNumber = 0;
-		userClickedSequence = [];
-		startGame();
-	}
-}
+	isGameRunning = false;
 
-function playAgain()
-{
-	gameOver = false;
-
-	level = 1;
-	sequenceNumber = 0;
-
-	generatedSequence = [];
-	$("button").on("click", buttonClick);
-	startGame();
-}
-
-function gameOverEnd()
-{
-	$("button").off("click");
-	$("#control").on("click", controlFlow);
-	gameOver = true;
 	playAudio("wrong");
+
+	$("#control").text("Game Over, Retry?");
+
 	$("body").addClass("game-over");
+
 	setTimeout(function ()
 	{
 		$("body").removeClass("game-over");
 	}, 200);
-	$("#control").text("Game Over, Retry?");
+
+	generatedSequence = [];
+
+	level = 1;
+	isGameRunning = false;
+	sequenceNumber = 0;
 }
 
 function getRandomNumber()

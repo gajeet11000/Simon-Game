@@ -1,3 +1,5 @@
+alert("Hi");
+
 var availableButtons = ["red", "green", "yellow", "blue"];
 
 var generatedSequence = [];

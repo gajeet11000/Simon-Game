@@ -59,8 +59,11 @@ function animateButton()
 	generatedSequence.push(randomButtonID);
 
 	// console.log(generatedSequence +" "+ sequenceNumber);
-
-	randomButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+	setTimeout(function ()
+	{
+		randomButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+	}, 400);
+	
 }
 
 function gameOver()

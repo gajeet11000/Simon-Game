@@ -1,4 +1,4 @@
-alert("Hi");
+alert("How to play: This game tests the memory retention of your brain. At each level, a button will blink, which is to be pressed preceded by the buttons pressed in previous level.");
 
 var availableButtons = ["red", "green", "yellow", "blue"];
 
